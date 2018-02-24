@@ -1,0 +1,15 @@
+{
+  "name": "skypebot",
+  "version": "1.0.0",
+  "description": "A simple skype bot",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "github.com/athj",
+  "license": "ISC",
+  "dependencies": {
+    "botbuilder": "^3.14.0",
+    "restify": "^6.3.4"
+  }
+}
