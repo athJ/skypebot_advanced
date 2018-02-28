@@ -4,7 +4,7 @@
  It uses some advanced features for bot builder framework like the datetime parser,
  the createpro.js file can be run to get the dialogs to store the user data in memory(Bot state)
  to learn more about bot state visit https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-state.
- The components for the bot have been seperated into modules 
+ ####The components for the bot have been seperated into the following modules 
 	1. app.js - Runs the server and imports all the module and also contains the default dialog
 	2. dialog.js - Has all the dialogs for bot app.js and createpro.js
 	3. event.js - Has actions for all the events triggered by the client
