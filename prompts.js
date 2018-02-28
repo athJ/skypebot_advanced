@@ -24,22 +24,27 @@ server.post('/api/messages', connector.listen());
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector, [
     function (session) {
-        session.send("Welcome ,I am here to help you make a appointment.");
+        session.send("This is prompt example");
         builder.Prompts.time(session, "Please provide a appointment date and time suitable for you (e.g.: June 6th at 5pm)");
     },
     function (session, results) {
-        session.dialogData.appointmentDate = builder.EntityRecognizer.resolveTime([results.response]);
-        builder.Prompts.text(session, "How many people are coming with you ?");
+        builder.Prompts.confirm(session, "Are you sure you wish to proceed ?");
     },
     function (session, results) {
-        session.dialogData.groupSize = Number(results.response)+1;
+        builder.Prompts.number(session, "How old are you ?");
+    },
+    function (session, results) {
+        builder.Prompts.choice(session, "Which color?", "red|green|blue", { listStyle: 4 });
+    },
+    function (session, results) {
+        builder.Prompts.attachment(session, "Upload a picture for me to transform.");
+    },
+    function (session, results) {
         builder.Prompts.text(session, "Who's name will this appointment be under?");
     },
     function (session, results) {
-        session.dialogData.appointmentName = results.response;
-
         // Process request and display reservation details
-        session.send(`Appointment confirmed. Appointment details: <br/>Date/Time: ${new Date(session.dialogData.appointmentDate).toString()} <br/>Group size: ${session.dialogData.groupSize} <br/>Appointment name: ${session.dialogData.appointmentName}`);
+        session.send('End of prompts');
         session.endDialog();
     }
 ]
